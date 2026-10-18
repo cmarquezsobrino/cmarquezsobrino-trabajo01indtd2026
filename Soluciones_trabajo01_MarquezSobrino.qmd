@@ -1,5 +1,5 @@
 ---
-title: "Trabajo01TD"
+title: "Soluciones_trabajo01_MarquezSobrino"
 lang: es
 author: "Carmen Márquez Sobrino"
 format: 
@@ -23,6 +23,11 @@ format:
 ---
 
 # Introducción
+
+Para la resolución de los dos ejercicios aquí propuestos se hará uso de las
+funciones de R que se encuentran en el archivo:  `teoriadecision_funciones_incertidumbre.R`, del repositorio de GitHub: [https://github.com/calote/TDecisionCodigo](https://github.com/calote/TDecisionCodigo). 
+
+En dicho archivo se encuentran definidas las funciones que permiten calcular los criterios de decisión bajo incertidumbre.
 
 ```{r}
 source("teoriadecision_funciones_incertidumbre.R")
@@ -117,7 +122,8 @@ alumnado:
 - (Baja demanda): Uso masivo de IA o exámenes muy asequibles. 
 (Para la primera alternativa, la demanda cae y solo logra impartir 25 horas a lo largo de todo el cuatrimestre).
 
-A partir de la información anterior, calcula los beneficios netos (ingresos menos costes) para cada combinación de alternativa y estado de la naturaleza, construyendo la matriz de decisión correspondiente.
+A partir de la información anterior, calcula los beneficios netos (ingresos menos costes) para cada combinación de alternativa y estado de la naturaleza, construyendo la matriz de decisión correspondiente. 
+Aplicar los criterios de decisión bajo incertidumbre para resolver el problema. ¿Cuál sería la opción que le recomendaría al tutor?
 
 ## Solución del Problema 2
 
