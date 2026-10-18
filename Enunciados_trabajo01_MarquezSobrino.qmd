@@ -1,0 +1,68 @@
+---
+title: "Enunciados_trabajo01_MarquezSobrino"
+lang: es
+author: "Carmen Márquez Sobrino"
+format: 
+  html:
+    toc: true
+    embed-resources: true
+    code-fold: false
+    code-tools: true
+    lightbox: true
+  typst:
+    toc: true
+    papersize: a4
+    margin: {x: 1.75cm, y: 1.5cm}
+    fig-width: 10
+    fig-height: 8
+    include-in-header:
+      - text: |
+          #show table: it => align(center, it)
+          #show figure.where(kind: table): set align(center)
+
+---
+
+# Introducción
+
+Para la resolución de los dos ejercicios aquí propuestos se hará uso de las
+funciones de R que se encuentran en el archivo:  `teoriadecision_funciones_incertidumbre.R`, del repositorio de GitHub: [https://github.com/calote/TDecisionCodigo](https://github.com/calote/TDecisionCodigo). 
+
+En dicho archivo se encuentran definidas las funciones que permiten calcular los criterios de decisión bajo incertidumbre.
+
+```{r}
+source("teoriadecision_funciones_incertidumbre.R")
+```
+
+
+# Problema 1
+
+Aplicar los criterios de decisión bajo incertidumbre (tanto en situación favorable como desfavorable) al problema cuya matriz de valores numéricos viene dada en la tabla siguiente:
+
+
+|       | $e_1$ | $e_2$ | $e_3$ | $e_4$ |
+|-------|-------|-------|-------|-------|
+| $d_1$ | 24    | 19    | 10    | 16    |
+| $d_2$ | 22    | 22    | 23    | 20    |
+| $d_3$ | 23    | 23    | 21    | 15    |
+| $d_4$ | 25    | 24    | 18    | 14    |
+
+
+# Problema 2
+Un tutor está planificando su estrategia de ingresos para el próximo cuatrimestre universitario. Dispone de tres opciones principales:
+
+- (Clases individuales continuas): Impartir tutorías personalizadas a lo largo de todo el cuatrimestre. Estima que podrá dar un total de 40 horas en todo el periodo a 30€/h. En esta modalidad no tiene gastos fijos de estructura.
+- (Talleres intensivos de exámenes): Organizar bloques de talleres prácticos de resolución de problemas en grupos reducidos los fines de semana previos a las convocatorias. Los ingresos dependerán de la afluencia de alumnos, pero se estima que su rendimiento neto reportará 2.500€ en caso de alta demanda, 1.400€ si la demanda es moderada, y 400€ si la demanda es baja.
+- (Creación y venta de paquetes de material digital y guías): Diseñar y comercializar dossieres de ejercicios y plantillas de código en R. El desarrollo de los materiales conlleva un coste fijo inicial de 600€. Por cada escenario, los ingresos brutos por ventas de estos materiales serán de 3.600€ si hay alta demanda, 1.400€ si la demanda es moderada, y 400€ si la demanda es baja. 
+
+Los beneficios netos finales para cada opción dependerán de las necesidades del
+alumnado:
+
+- (Alta demanda): Alta necesidad de apoyo externo por parte de los estudiantes.
+(Para la primera alternativa, en este escenario de alta demanda, el tutor optimiza sus horas y consigue un 20% de ingresos extra, alcanzando 1.440€ brutos).
+- (Demanda moderada y estable): Comportamiento habitual del curso. 
+(Para la primera alternativa, se cumplen exactamente las 40 horas previstas a 30€/h).
+- (Baja demanda): Uso masivo de IA o exámenes muy asequibles. 
+(Para la primera alternativa, la demanda cae y solo logra impartir 25 horas a lo largo de todo el cuatrimestre).
+
+A partir de la información anterior, calcula los beneficios netos (ingresos menos costes) para cada combinación de alternativa y estado de la naturaleza, construyendo la matriz de decisión correspondiente. 
+Aplicar los criterios de decisión bajo incertidumbre para resolver el problema. ¿Cuál sería la opción que le recomendaría al tutor?
