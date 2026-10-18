@@ -25,34 +25,7 @@ format:
 # Introducción
 
 ```{r}
-source("TDecisionCodigo-master/TDecisionCodigo-master/teoriadecision_funciones_incertidumbre.R")
-
-## Un fichero Rmd o qmd lo convierte a un fichero R
-
-# knitr::purl("relacion01sol_c2024.Rmd",
-#              output="relacion01sol_c2024_aa.R",
-#              documentation = 0)
-
-# purl(f, documentation = 1)  # (por defecto) extrae código R con opciones chunks
-# purl(f, documentation = 0)  # extrae el código R solamente
-# purl(f, documentation = 2)  # como 1, pero también extrae el texto fuera de chunks
-# 
-# Borrar ficheros (auxiliares)
-# unlink(c("knitr-minimal.tex", "knitr-minimal.R", "figure"), recursive = TRUE)
-
-## Un fichero R lo convierte a un fichero Rmd o qmd
-
-# knitr::spin("teoriadecision_funciones_incertidumbre.R", format = c("Rmd"), knit = FALSE)
-# knitr::spin("teoriadecision_funciones_incertidumbre.R", format = c("qmd"), knit = FALSE)
-```
-
-```{r}
-# Practicar la Depuración de código R desde RStudio sobre un fichero de script R
-## También se puede sobre ficheros Rmd y qmd (con cuidado)
-# Usando: browser(), debug(), undebug(), debugonce()
-# debug(fun = crea.tablaX)
-# undebug(fun = crea.tablaX)
-# debugonce(fun = crea.tablaX)
+source("teoriadecision_funciones_incertidumbre.R")
 ```
 
 
@@ -128,7 +101,37 @@ dibuja.criterio.Hurwicz_Intervalos(tb01fav, F, T)
 
 
 # Problema 2
+Un tutor está planificando su estrategia de ingresos para el próximo cuatrimestre universitario. Dispone de tres opciones principales:
 
+- (Clases individuales continuas): Impartir tutorías personalizadas a lo largo de todo el cuatrimestre. Estima que podrá dar un total de 40 horas en todo el periodo a 30€/h. En esta modalidad no tiene gastos fijos de estructura.
+- (Talleres intensivos de exámenes): Organizar bloques de talleres prácticos de resolución de problemas en grupos reducidos los fines de semana previos a las convocatorias. Los ingresos dependerán de la afluencia de alumnos, pero se estima que su rendimiento neto reportará 2.500€ en caso de alta demanda, 1.400€ si la demanda es moderada, y 400€ si la demanda es baja.
+- (Creación y venta de paquetes de material digital y guías): Diseñar y comercializar dossieres de ejercicios y plantillas de código en R. El desarrollo de los materiales conlleva un coste fijo inicial de 600€. Por cada escenario, los ingresos brutos por ventas de estos materiales serán de 3.600€ si hay alta demanda, 1.400€ si la demanda es moderada, y 400€ si la demanda es baja. 
+
+Los beneficios netos finales para cada opción dependerán de las necesidades del
+alumnado:
+
+- (Alta demanda): Alta necesidad de apoyo externo por parte de los estudiantes.
+(Para la primera alternativa, en este escenario de alta demanda, el tutor optimiza sus horas y consigue un 20% de ingresos extra, alcanzando 1.440€ brutos).
+- (Demanda moderada y estable): Comportamiento habitual del curso. 
+(Para la primera alternativa, se cumplen exactamente las 40 horas previstas a 30€/h).
+- (Baja demanda): Uso masivo de IA o exámenes muy asequibles. 
+(Para la primera alternativa, la demanda cae y solo logra impartir 25 horas a lo largo de todo el cuatrimestre).
+
+A partir de la información anterior, calcula los beneficios netos (ingresos menos costes) para cada combinación de alternativa y estado de la naturaleza, construyendo la matriz de decisión correspondiente.
 
 ## Solución del Problema 2
 
+```{r}
+tb02 = crea.tablaX(c(1440,1200,750,
+                     2500,1400,400,
+                     3000,800,-200),
+                    numalternativas = 3,
+                    numestados = 3,
+                   nb_alternativas = c("Clases individuales","Talleres intensivos","Material digital"),
+                   nb_estados = c("Demanda alta","Demanda moderada","Demanda baja"))
+tb02
+```
+
+```{r}
+criterio.Todos(tb02, 0.5, T)
+```
