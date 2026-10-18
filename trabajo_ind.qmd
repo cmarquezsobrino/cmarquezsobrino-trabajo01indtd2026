@@ -1,0 +1,134 @@
+---
+title: "Trabajo01TD"
+lang: es
+author: "Carmen Márquez Sobrino"
+format: 
+  html:
+    toc: true
+    embed-resources: true
+    code-fold: false
+    code-tools: true
+    lightbox: true
+  typst:
+    toc: true
+    papersize: a4
+    margin: {x: 1.75cm, y: 1.5cm}
+    fig-width: 10
+    fig-height: 8
+    include-in-header:
+      - text: |
+          #show table: it => align(center, it)
+          #show figure.where(kind: table): set align(center)
+
+---
+
+# Introducción
+
+```{r}
+source("TDecisionCodigo-master/TDecisionCodigo-master/teoriadecision_funciones_incertidumbre.R")
+
+## Un fichero Rmd o qmd lo convierte a un fichero R
+
+# knitr::purl("relacion01sol_c2024.Rmd",
+#              output="relacion01sol_c2024_aa.R",
+#              documentation = 0)
+
+# purl(f, documentation = 1)  # (por defecto) extrae código R con opciones chunks
+# purl(f, documentation = 0)  # extrae el código R solamente
+# purl(f, documentation = 2)  # como 1, pero también extrae el texto fuera de chunks
+# 
+# Borrar ficheros (auxiliares)
+# unlink(c("knitr-minimal.tex", "knitr-minimal.R", "figure"), recursive = TRUE)
+
+## Un fichero R lo convierte a un fichero Rmd o qmd
+
+# knitr::spin("teoriadecision_funciones_incertidumbre.R", format = c("Rmd"), knit = FALSE)
+# knitr::spin("teoriadecision_funciones_incertidumbre.R", format = c("qmd"), knit = FALSE)
+```
+
+```{r}
+# Practicar la Depuración de código R desde RStudio sobre un fichero de script R
+## También se puede sobre ficheros Rmd y qmd (con cuidado)
+# Usando: browser(), debug(), undebug(), debugonce()
+# debug(fun = crea.tablaX)
+# undebug(fun = crea.tablaX)
+# debugonce(fun = crea.tablaX)
+```
+
+
+# Problema 1
+
+Aplicar los criterios de decisión bajo incertidumbre (tanto en situación favorable como desfavorable) al problema cuya matriz de valores numéricos viene dada en la tabla siguiente:
+
+
+|       | $e_1$ | $e_2$ | $e_3$ | $e_4$ |
+|-------|-------|-------|-------|-------|
+| $d_1$ | 24    | 19    | 10    | 16    |
+| $d_2$ | 22    | 22    | 23    | 20    |
+| $d_3$ | 23    | 23    | 21    | 15    |
+| $d_4$ | 25    | 24    | 18    | 14    |
+
+
+
+## Solución del Problema 1 (favorable) 
+
+```{r}
+tb01fav = crea.tablaX(c(24,19,10,16,
+                        22,22,23,20,
+                        23,23,21,15,
+                        25,24,18,14),
+                    numalternativas = 4,
+                    numestados = 4)
+tb01fav
+```
+
+```{r}
+criterio.Wald(tb01fav,T)
+criterio.Optimista(tb01fav, T)
+criterio.Hurwicz(tb01fav, alfa = 0.6, T)
+criterio.Savage(tb01fav,T)
+criterio.Laplace(tb01fav,T)
+criterio.PuntoIdeal(tb01fav,T)
+```
+
+
+```{r}
+dibuja.criterio.Hurwicz(tb01fav, T)
+```
+
+
+```{r}
+dibuja.criterio.Hurwicz_Intervalos(tb01fav, T, T)
+```
+
+```{r}
+criterio.Todos(tb01fav, 0.6, T)
+```
+
+## Solución del Problema 1 (desfavorable)
+
+```{r}
+criterio.Wald(tb01fav,F)
+criterio.Optimista(tb01fav,F)
+criterio.Hurwicz(tb01fav, alfa = 0.6, F)
+criterio.Savage(tb01fav,F)
+criterio.Laplace(tb01fav,F)
+criterio.PuntoIdeal(tb01fav,F)
+```
+
+
+```{r}
+dibuja.criterio.Hurwicz(tb01fav, F)
+```
+
+
+```{r}
+dibuja.criterio.Hurwicz_Intervalos(tb01fav, F, T)
+```
+
+
+# Problema 2
+
+
+## Solución del Problema 2
+
