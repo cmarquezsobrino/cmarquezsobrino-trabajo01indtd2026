@@ -1,8 +1,3 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
 # Trabajo01 individual Teoría de la Decisión 2026
 
 ## Descripción 
