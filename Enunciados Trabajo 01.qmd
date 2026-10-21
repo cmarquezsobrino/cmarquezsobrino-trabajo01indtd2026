@@ -1,5 +1,5 @@
 ---
-title: "Soluciones_trabajo01_MarquezSobrino"
+title: "Enunciados Trabajo 01"
 lang: es
 author: "Carmen Márquez Sobrino"
 format: 
@@ -52,66 +52,7 @@ Aplicar los criterios de decisión bajo incertidumbre (tanto en situación favor
 - El valor mínimo absoluto contenido en toda la matriz de decisión de la tabla es 14.
 - Si se aplica el criterio de Hurwicz, en situación favorable, con un coeficiente de optimismo $\alpha = 0,6$, el valor ponderado obtenido para la cuarta fila es 20,6.
 
-## Solución del Problema 1 (favorable) 
 
-```{r}
-tb01fav = crea.tablaX(c(24,19,10,16,
-                        22,22,23,20,
-                        23,23,21,15,
-                        25,24,18,14),
-                    numalternativas = 4,
-                    numestados = 4)
-tb01fav
-```
-
-```{r}
-criterio.Wald(tb01fav,T)
-criterio.Optimista(tb01fav, T)
-criterio.Hurwicz(tb01fav, alfa = 0.6, T)
-criterio.Savage(tb01fav,T)
-criterio.Laplace(tb01fav,T)
-criterio.PuntoIdeal(tb01fav,T)
-```
-
-Como apartado extra, se dibuja el gráfico de la función de Hurwicz, separando los intervalos en los que cambia la alternativa óptima. No se pide, pero hace más visual la interpretación del coeficiente de optimismo $\alpha$ y los cambios que tienen lugar al modificar este.
-
-```{r}
-dibuja.criterio.Hurwicz_Intervalos(tb01fav, T, T)
-```
-
-
-## Solución del Problema 1 (desfavorable)
-
-```{r}
-criterio.Wald(tb01fav,F)
-criterio.Optimista(tb01fav,F)
-criterio.Hurwicz(tb01fav, alfa = 0.6, F)
-criterio.Savage(tb01fav,F)
-criterio.Laplace(tb01fav,F)
-criterio.PuntoIdeal(tb01fav,F) 
-```
-
-Como apartado extra, se dibuja el gráfico de la función de Hurwicz, separando los intervalos en los que cambia la alternativa óptima No se pide, pero hace más visual la interpretación del coeficiente de optimismo $\alpha$ y los cambios que tienen lugar al modificar este.
-```{r}
-dibuja.criterio.Hurwicz_Intervalos(tb01fav, F, T)
-```
-
-
-- Según el criterio pesimista, en situación desfavorable, la alternativa óptima es la primera: $d_1$.
-Esto es **Falso**, en situación desfavorable, según este criterio hay dos alternativas óptimas, la segunda $d_2$: y la tercera: $d_3$.
-
-- Aplicando el criterio optimista, en situación favorable, la alternativa seleccionada corresponde a la tercera: $d_3$.
-Esto es **Falso**, en situación favorable, según este criterio la alternativa óptima es la cuarta: $d_4$.
-
-- Utilizando el criterio de Laplace, en situación desfavorable, la alternativa que presenta mayor valor de esperanza matemática, y por tanto es la óptima, es la segunda: $d_2$.
-Esto es **Falso**, en situación desfavorable, según este criterio la alternativa óptima es la primera: $d_1$, la alternativa que presenta **menor** valor de esperanza matemática.
-
-
-- El valor mínimo absoluto contenido en toda la matriz de decisión de la tabla es 14.
-Esto es **Falso**, el valor mínimo absoluto contenido en toda la matriz de decisión de la tabla es 10.
-
-- Si se aplica el criterio de Hurwicz, en situación favorable, con un coeficiente de optimismo $\alpha = 0,6$, el valor ponderado obtenido para la cuarta fila es 20,6.
-Esto es **Verdadero**, basta con irse a las salidas de la función `criterio.Hurwicz()` para comprobarlo.
 
 # Problema 2
 Un tutor está planificando su estrategia de ingresos para el próximo cuatrimestre universitario. Dispone de tres opciones principales:
@@ -140,38 +81,3 @@ Responder también a las cuestiones que se plantean dando una justificación.
 - Utilizando el criterio de Laplace, el valor de la esperanza matemática  para los _Talleres intensivos_ ($d_2$) es superior a 1.400€. 
 - El coste de oportunidad máximo (arrepentimiento) para la alternativa de _Material digital_ ($d_3$) bajo el criterio de Savage es de 600€. 
 - Si se aplica el criterio de Hurwicz con un coeficiente de optimismo $\alpha = 0.5$, la alternativa preferida es la de _Material digital_ ($d_3$). 
-
-
-
-## Solución del Problema 2
-
-```{r}
-tb02 = crea.tablaX(c(1440,1200,750,
-                     2500,1400,400,
-                     3000,800,-200),
-                    numalternativas = 3,
-                    numestados = 3,
-                   nb_alternativas = c("Clases individuales","Talleres intensivos","Material digital"),
-                   nb_estados = c("Demanda alta","Demanda moderada","Demanda baja"))
-tb02
-```
-
-```{r}
-criterio.Todos(tb02, 0.5, T)
-```
-
-- Según el criterio de Wald, la alternativa óptima para el tutor son las _Clases individuales_ ($d_1$).
-Esto es **Verdadero**, basta con ver la salida del criterio Wald.
-
-- Aplicando el criterio optimista, la alternativa seleccionada es la de los _Talleres intensivos_ ($d_2$).
-Esto es **Falso**, la opción con el mayor beneficio máximo es la de _Material digital_ $d_3$ con 3.000€).
-
-- Utilizando el criterio de Laplace, el valor de la esperanza matemática  para los _Talleres intensivos_ ($d_2$) es superior a 1.400€. 
-Esto es **Verdadero**, el valor de la esperanza matemática para los _Talleres intensivos_ ($d_2$) es de 1.433,33€.
-
-- El coste de oportunidad máximo (arrepentimiento) para la alternativa de _Material digital_ ($d_3$) bajo el criterio de Savage es de 600€. 
-Esto es **Falso**, el coste de oportunidad máximo (arrepentimiento) para la alternativa de _Material digital_ ($d_3$) bajo el criterio de Savage es de 950€.
-
-- Si se aplica el criterio de Hurwicz con un coeficiente de optimismo
-$\alpha = 0.5$, la alternativa preferida es la de _Material digital_ ($d_3$). 
-Esto es **Falso**, la alternativa preferida es la de _Talleres intensivos_ ($d_2$) con un valor ponderado de 1.450€.
