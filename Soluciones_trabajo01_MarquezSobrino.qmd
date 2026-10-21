@@ -10,7 +10,6 @@ format:
     code-tools: true
     lightbox: true
   typst:
-    toc: true
     papersize: a4
     margin: {x: 1.75cm, y: 1.5cm}
     fig-width: 10
@@ -19,7 +18,7 @@ format:
       - text: |
           #show table: it => align(center, it)
           #show figure.where(kind: table): set align(center)
-
+          #show link: set text(fill: blue)
 ---
 
 # Introducción
@@ -36,7 +35,7 @@ source("teoriadecision_funciones_incertidumbre.R")
 
 # Problema 1
 
-Aplicar los criterios de decisión bajo incertidumbre (tanto en situación favorable como desfavorable) al problema cuya matriz de valores numéricos viene dada en la tabla siguiente:
+Aplicar los criterios de decisión bajo incertidumbre (tanto en situación favorable como desfavorable) al problema cuya matriz de valores numéricos viene dada en la tabla siguiente y responder a las cuestiones que se plantean dando una justificación:
 
 
 |       | $e_1$ | $e_2$ | $e_3$ | $e_4$ |
@@ -47,6 +46,11 @@ Aplicar los criterios de decisión bajo incertidumbre (tanto en situación favor
 | $d_4$ | 25    | 24    | 18    | 14    |
 
 
+- Según el criterio pesimista, en situación desfavorable, la alternativa óptima es la primera: $d_1$.
+- Aplicando el criterio optimista, en situación favorable, la alternativa seleccionada corresponde a la tercera: $d_3$.
+- Utilizando el criterio de Laplace, en situación desfavorable, la alternativa que presenta mayor valor de esperanza matemática, y por tanto es la óptima, es la segunda: $d_2$.
+- El valor mínimo absoluto contenido en toda la matriz de decisión de la tabla es 14.
+- Si se aplica el criterio de Hurwicz, en situación favorable, con un coeficiente de optimismo $\alpha = 0,6$, el valor ponderado obtenido para la cuarta fila es 20,6.
 
 ## Solución del Problema 1 (favorable) 
 
@@ -69,19 +73,12 @@ criterio.Laplace(tb01fav,T)
 criterio.PuntoIdeal(tb01fav,T)
 ```
 
-
-```{r}
-dibuja.criterio.Hurwicz(tb01fav, T)
-```
-
+Como apartado extra, se dibuja el gráfico de la función de Hurwicz, separando los intervalos en los que cambia la alternativa óptima. No se pide, pero hace más visual la interpretación del coeficiente de optimismo $\alpha$ y los cambios que tienen lugar al modificar este.
 
 ```{r}
 dibuja.criterio.Hurwicz_Intervalos(tb01fav, T, T)
 ```
 
-```{r}
-criterio.Todos(tb01fav, 0.6, T)
-```
 
 ## Solución del Problema 1 (desfavorable)
 
@@ -91,39 +88,60 @@ criterio.Optimista(tb01fav,F)
 criterio.Hurwicz(tb01fav, alfa = 0.6, F)
 criterio.Savage(tb01fav,F)
 criterio.Laplace(tb01fav,F)
-criterio.PuntoIdeal(tb01fav,F)
+criterio.PuntoIdeal(tb01fav,F) 
 ```
 
-
-```{r}
-dibuja.criterio.Hurwicz(tb01fav, F)
-```
-
-
+Como apartado extra, se dibuja el gráfico de la función de Hurwicz, separando los intervalos en los que cambia la alternativa óptima No se pide, pero hace más visual la interpretación del coeficiente de optimismo $\alpha$ y los cambios que tienen lugar al modificar este.
 ```{r}
 dibuja.criterio.Hurwicz_Intervalos(tb01fav, F, T)
 ```
 
 
+- Según el criterio pesimista, en situación desfavorable, la alternativa óptima es la primera: $d_1$.
+Esto es **Falso**, en situación desfavorable, según este criterio hay dos alternativas óptimas, la segunda $d_2$: y la tercera: $d_3$.
+
+- Aplicando el criterio optimista, en situación favorable, la alternativa seleccionada corresponde a la tercera: $d_3$.
+Esto es **Falso**, en situación favorable, según este criterio la alternativa óptima es la cuarta: $d_4$.
+
+- Utilizando el criterio de Laplace, en situación desfavorable, la alternativa que presenta mayor valor de esperanza matemática, y por tanto es la óptima, es la segunda: $d_2$.
+Esto es **Falso**, en situación desfavorable, según este criterio la alternativa óptima es la primera: $d_1$, la alternativa que presenta **menor** valor de esperanza matemática.
+
+
+- El valor mínimo absoluto contenido en toda la matriz de decisión de la tabla es 14.
+Esto es **Falso**, el valor mínimo absoluto contenido en toda la matriz de decisión de la tabla es 10.
+
+- Si se aplica el criterio de Hurwicz, en situación favorable, con un coeficiente de optimismo $\alpha = 0,6$, el valor ponderado obtenido para la cuarta fila es 20,6.
+Esto es **Verdadero**, basta con irse a las salidas de la función `criterio.Hurwicz()` para comprobarlo.
+
 # Problema 2
 Un tutor está planificando su estrategia de ingresos para el próximo cuatrimestre universitario. Dispone de tres opciones principales:
 
-- (Clases individuales continuas): Impartir tutorías personalizadas a lo largo de todo el cuatrimestre. Estima que podrá dar un total de 40 horas en todo el periodo a 30€/h. En esta modalidad no tiene gastos fijos de estructura.
-- (Talleres intensivos de exámenes): Organizar bloques de talleres prácticos de resolución de problemas en grupos reducidos los fines de semana previos a las convocatorias. Los ingresos dependerán de la afluencia de alumnos, pero se estima que su rendimiento neto reportará 2.500€ en caso de alta demanda, 1.400€ si la demanda es moderada, y 400€ si la demanda es baja.
-- (Creación y venta de paquetes de material digital y guías): Diseñar y comercializar dossieres de ejercicios y plantillas de código en R. El desarrollo de los materiales conlleva un coste fijo inicial de 600€. Por cada escenario, los ingresos brutos por ventas de estos materiales serán de 3.600€ si hay alta demanda, 1.400€ si la demanda es moderada, y 400€ si la demanda es baja. 
+- _(Clases individuales)_: Impartir tutorías personalizadas a lo largo de todo el cuatrimestre. Estima que podrá dar un total de 40 horas en todo el periodo a 30€/h. En esta modalidad no tiene gastos fijos de estructura.
+- _(Talleres intensivos)_: Organizar bloques de talleres prácticos de resolución de problemas en grupos reducidos los fines de semana previos a las convocatorias. Los ingresos dependerán de la afluencia de alumnos, pero se estima que su rendimiento neto reportará 2.500€ en caso de alta demanda, 1.400€ si la demanda es moderada, y 400€ si la demanda es baja.
+- _(Material digital)_: Diseñar y comercializar dossieres de ejercicios y plantillas de código en R. El desarrollo de los materiales conlleva un coste fijo inicial de 600€. Por cada escenario, los ingresos brutos por ventas de estos materiales serán de 3.600€ si hay alta demanda, 1.400€ si la demanda es moderada, y 400€ si la demanda es baja. 
 
 Los beneficios netos finales para cada opción dependerán de las necesidades del
 alumnado:
 
-- (Alta demanda): Alta necesidad de apoyo externo por parte de los estudiantes.
+- _(Alta demanda)_: Alta necesidad de apoyo externo por parte de los estudiantes.
 (Para la primera alternativa, en este escenario de alta demanda, el tutor optimiza sus horas y consigue un 20% de ingresos extra, alcanzando 1.440€ brutos).
-- (Demanda moderada y estable): Comportamiento habitual del curso. 
+- _(Demanda moderada y estable)_: Comportamiento habitual del curso. 
 (Para la primera alternativa, se cumplen exactamente las 40 horas previstas a 30€/h).
-- (Baja demanda): Uso masivo de IA o exámenes muy asequibles. 
+- _(Baja demanda)_: Uso masivo de IA o exámenes muy asequibles. 
 (Para la primera alternativa, la demanda cae y solo logra impartir 25 horas a lo largo de todo el cuatrimestre).
 
 A partir de la información anterior, calcula los beneficios netos (ingresos menos costes) para cada combinación de alternativa y estado de la naturaleza, construyendo la matriz de decisión correspondiente. 
 Aplicar los criterios de decisión bajo incertidumbre para resolver el problema. ¿Cuál sería la opción que le recomendaría al tutor?
+
+Responder también a las cuestiones que se plantean dando una justificación.
+
+- Según el criterio de Wald, la alternativa óptima para el tutor son las _Clases individuales_ ($d_1$).
+- Aplicando el criterio optimista, la alternativa seleccionada es la de los _Talleres intensivos_ ($d_2$).
+- Utilizando el criterio de Laplace, el valor de la esperanza matemática  para los _Talleres intensivos_ ($d_2$) es superior a 1.400€. 
+- El coste de oportunidad máximo (arrepentimiento) para la alternativa de _Material digital_ ($d_3$) bajo el criterio de Savage es de 600€. 
+- Si se aplica el criterio de Hurwicz con un coeficiente de optimismo $\alpha = 0.5$, la alternativa preferida es la de _Material digital_ ($d_3$). 
+
+
 
 ## Solución del Problema 2
 
@@ -141,3 +159,19 @@ tb02
 ```{r}
 criterio.Todos(tb02, 0.5, T)
 ```
+
+- Según el criterio de Wald, la alternativa óptima para el tutor son las _Clases individuales_ ($d_1$).
+Esto es **Verdadero**, basta con ver la salida del criterio Wald.
+
+- Aplicando el criterio optimista, la alternativa seleccionada es la de los _Talleres intensivos_ ($d_2$).
+Esto es **Falso**, la opción con el mayor beneficio máximo es la de _Material digital_ $d_3$ con 3.000€).
+
+- Utilizando el criterio de Laplace, el valor de la esperanza matemática  para los _Talleres intensivos_ ($d_2$) es superior a 1.400€. 
+Esto es **Verdadero**, el valor de la esperanza matemática para los _Talleres intensivos_ ($d_2$) es de 1.433,33€.
+
+- El coste de oportunidad máximo (arrepentimiento) para la alternativa de _Material digital_ ($d_3$) bajo el criterio de Savage es de 600€. 
+Esto es **Falso**, el coste de oportunidad máximo (arrepentimiento) para la alternativa de _Material digital_ ($d_3$) bajo el criterio de Savage es de 950€.
+
+- Si se aplica el criterio de Hurwicz con un coeficiente de optimismo
+$\alpha = 0.5$, la alternativa preferida es la de _Material digital_ ($d_3$). 
+Esto es **Falso**, la alternativa preferida es la de _Talleres intensivos_ ($d_2$) con un valor ponderado de 1.450€.
