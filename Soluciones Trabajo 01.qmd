@@ -55,45 +55,45 @@ Aplicar los criterios de decisión bajo incertidumbre (tanto en situación favor
 ## Solución del Problema 1 (favorable) 
 
 ```{r}
-tb01fav = crea.tablaX(c(24,19,10,16,
+tb01 = crea.tablaX(c(24,19,10,16,
                         22,22,23,20,
                         23,23,21,15,
                         25,24,18,14),
                     numalternativas = 4,
                     numestados = 4)
-tb01fav
+tb01
 ```
 
 ```{r}
-criterio.Wald(tb01fav,T)
-criterio.Optimista(tb01fav, T)
-criterio.Hurwicz(tb01fav, alfa = 0.6, T)
-criterio.Savage(tb01fav,T)
-criterio.Laplace(tb01fav,T)
-criterio.PuntoIdeal(tb01fav,T)
+criterio.Wald(tb01,T)
+criterio.Optimista(tb01, T)
+criterio.Hurwicz(tb01, alfa = 0.6, T)
+criterio.Savage(tb01,T)
+criterio.Laplace(tb01,T)
+criterio.PuntoIdeal(tb01,T)
 ```
 
 Como apartado extra, se dibuja el gráfico de la función de Hurwicz, separando los intervalos en los que cambia la alternativa óptima. No se pide, pero hace más visual la interpretación del coeficiente de optimismo $\alpha$ y los cambios que tienen lugar al modificar este.
 
 ```{r}
-dibuja.criterio.Hurwicz_Intervalos(tb01fav, T, T)
+dibuja.criterio.Hurwicz_Intervalos(tb01, T, T)
 ```
 
 
 ## Solución del Problema 1 (desfavorable)
 
 ```{r}
-criterio.Wald(tb01fav,F)
-criterio.Optimista(tb01fav,F)
-criterio.Hurwicz(tb01fav, alfa = 0.6, F)
-criterio.Savage(tb01fav,F)
-criterio.Laplace(tb01fav,F)
-criterio.PuntoIdeal(tb01fav,F) 
+criterio.Wald(tb01,F)
+criterio.Optimista(tb01,F)
+criterio.Hurwicz(tb01, alfa = 0.6, F)
+criterio.Savage(tb01,F)
+criterio.Laplace(tb01,F)
+criterio.PuntoIdeal(tb01,F) 
 ```
 
 Como apartado extra, se dibuja el gráfico de la función de Hurwicz, separando los intervalos en los que cambia la alternativa óptima No se pide, pero hace más visual la interpretación del coeficiente de optimismo $\alpha$ y los cambios que tienen lugar al modificar este.
 ```{r}
-dibuja.criterio.Hurwicz_Intervalos(tb01fav, F, T)
+dibuja.criterio.Hurwicz_Intervalos(tb01, F, T)
 ```
 
 

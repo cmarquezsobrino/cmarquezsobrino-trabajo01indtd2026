@@ -2477,13 +2477,13 @@ window.Quarto = {
 <section id="solución-del-problema-1-favorable" class="level2">
 <h2 class="anchored" data-anchor-id="solución-del-problema-1-favorable">Solución del Problema 1 (favorable)</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tb01fav <span class="ot">=</span> <span class="fu">crea.tablaX</span>(<span class="fu">c</span>(<span class="dv">24</span>,<span class="dv">19</span>,<span class="dv">10</span>,<span class="dv">16</span>,</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tb01 <span class="ot">=</span> <span class="fu">crea.tablaX</span>(<span class="fu">c</span>(<span class="dv">24</span>,<span class="dv">19</span>,<span class="dv">10</span>,<span class="dv">16</span>,</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                        <span class="dv">22</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">20</span>,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                        <span class="dv">23</span>,<span class="dv">23</span>,<span class="dv">21</span>,<span class="dv">15</span>,</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                        <span class="dv">25</span>,<span class="dv">24</span>,<span class="dv">18</span>,<span class="dv">14</span>),</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">numalternativas =</span> <span class="dv">4</span>,</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">numestados =</span> <span class="dv">4</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>tb01fav</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>tb01</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   e1 e2 e3 e4
 d1 24 19 10 16
@@ -2493,7 +2493,7 @@ d4 25 24 18 14</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Wald</span>(tb01fav,T)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Wald</span>(tb01,T)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$criterio
 [1] &quot;Wald&quot;
@@ -2519,7 +2519,7 @@ $AlternativaOptima
 d2 
  2 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Optimista</span>(tb01fav, T)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Optimista</span>(tb01, T)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$criterio
 [1] &quot;Optimista&quot;
@@ -2545,7 +2545,7 @@ $AlternativaOptima
 d4 
  4 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Hurwicz</span>(tb01fav, <span class="at">alfa =</span> <span class="fl">0.6</span>, T)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Hurwicz</span>(tb01, <span class="at">alfa =</span> <span class="fl">0.6</span>, T)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$criterio
 [1] &quot;Hurwicz&quot;
@@ -2574,7 +2574,7 @@ $AlternativaOptima
 d2 
  2 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Savage</span>(tb01fav,T)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Savage</span>(tb01,T)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$criterio
 [1] &quot;Savage&quot;
@@ -2611,7 +2611,7 @@ $AlternativaOptima
 d2 
  2 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Laplace</span>(tb01fav,T)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Laplace</span>(tb01,T)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$criterio
 [1] &quot;Laplace&quot;
@@ -2637,7 +2637,7 @@ $AlternativaOptima
 d2 
  2 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.PuntoIdeal</span>(tb01fav,T)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.PuntoIdeal</span>(tb01,T)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$criterio
 [1] &quot;Punto Ideal&quot;
@@ -2670,7 +2670,7 @@ d2
 </div>
 <p>Como apartado extra, se dibuja el gráfico de la función de Hurwicz, separando los intervalos en los que cambia la alternativa óptima. No se pide, pero hace más visual la interpretación del coeficiente de optimismo <span class="math inline">\(\alpha\)</span> y los cambios que tienen lugar al modificar este.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dibuja.criterio.Hurwicz_Intervalos</span>(tb01fav, T, T)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dibuja.criterio.Hurwicz_Intervalos</span>(tb01, T, T)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2695,7 +2695,7 @@ $IntervalosAlfa
 <section id="solución-del-problema-1-desfavorable" class="level2">
 <h2 class="anchored" data-anchor-id="solución-del-problema-1-desfavorable">Solución del Problema 1 (desfavorable)</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Wald</span>(tb01fav,F)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Wald</span>(tb01,F)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$criterio
 [1] &quot;Wald&quot;
@@ -2721,7 +2721,7 @@ $AlternativaOptima
 d2 d3 
  2  3 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Optimista</span>(tb01fav,F)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Optimista</span>(tb01,F)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$criterio
 [1] &quot;Optimista&quot;
@@ -2747,7 +2747,7 @@ $AlternativaOptima
 d1 
  1 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Hurwicz</span>(tb01fav, <span class="at">alfa =</span> <span class="fl">0.6</span>, F)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Hurwicz</span>(tb01, <span class="at">alfa =</span> <span class="fl">0.6</span>, F)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$criterio
 [1] &quot;Hurwicz&quot;
@@ -2776,7 +2776,7 @@ $AlternativaOptima
 d1 
  1 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Savage</span>(tb01fav,F)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Savage</span>(tb01,F)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$criterio
 [1] &quot;Savage&quot;
@@ -2813,7 +2813,7 @@ $AlternativaOptima
 d1 
  1 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Laplace</span>(tb01fav,F)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Laplace</span>(tb01,F)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$criterio
 [1] &quot;Laplace&quot;
@@ -2839,7 +2839,7 @@ $AlternativaOptima
 d1 
  1 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.PuntoIdeal</span>(tb01fav,F) </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.PuntoIdeal</span>(tb01,F) </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$criterio
 [1] &quot;Punto Ideal&quot;
@@ -2872,7 +2872,7 @@ d1
 </div>
 <p>Como apartado extra, se dibuja el gráfico de la función de Hurwicz, separando los intervalos en los que cambia la alternativa óptima No se pide, pero hace más visual la interpretación del coeficiente de optimismo <span class="math inline">\(\alpha\)</span> y los cambios que tienen lugar al modificar este.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dibuja.criterio.Hurwicz_Intervalos</span>(tb01fav, F, T)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dibuja.criterio.Hurwicz_Intervalos</span>(tb01, F, T)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2969,6 +2969,7 @@ Material digital                      1
 iAlt.Opt (fav.)     Talleres intensivos</code></pre>
 </div>
 </div>
+<p>Debido a que con los 6 criterios realizados, la alternativa más veces óptima (<span class="math inline">\(4/6\)</span>) es la de <em>Talleres Intensivos</em>, al tutor le recomendaría esa alternativa.</p>
 <ul>
 <li><p>Según el criterio de Wald, la alternativa óptima para el tutor son las <em>Clases individuales</em> (<span class="math inline">\(d_1\)</span>). Esto es <strong>Verdadero</strong>, basta con ver la salida del criterio Wald.</p></li>
 <li><p>Aplicando el criterio optimista, la alternativa seleccionada es la de los <em>Talleres intensivos</em> (<span class="math inline">\(d_2\)</span>). Esto es <strong>Falso</strong>, la opción con el mayor beneficio máximo es la de <em>Material digital</em> <span class="math inline">\(d_3\)</span> con 3.000€.</p></li>
@@ -3491,45 +3492,45 @@ iAlt.Opt (fav.)     Talleres intensivos</code></pre>
 <span id="cb36-57"><a href="#cb36-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## Solución del Problema 1 (favorable) </span></span>
 <span id="cb36-58"><a href="#cb36-58" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-61"><a href="#cb36-61" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb36-62"><a href="#cb36-62" aria-hidden="true" tabindex="-1"></a>tb01fav <span class="ot">=</span> <span class="fu">crea.tablaX</span>(<span class="fu">c</span>(<span class="dv">24</span>,<span class="dv">19</span>,<span class="dv">10</span>,<span class="dv">16</span>,</span>
+<span id="cb36-62"><a href="#cb36-62" aria-hidden="true" tabindex="-1"></a>tb01 <span class="ot">=</span> <span class="fu">crea.tablaX</span>(<span class="fu">c</span>(<span class="dv">24</span>,<span class="dv">19</span>,<span class="dv">10</span>,<span class="dv">16</span>,</span>
 <span id="cb36-63"><a href="#cb36-63" aria-hidden="true" tabindex="-1"></a>                        <span class="dv">22</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">20</span>,</span>
 <span id="cb36-64"><a href="#cb36-64" aria-hidden="true" tabindex="-1"></a>                        <span class="dv">23</span>,<span class="dv">23</span>,<span class="dv">21</span>,<span class="dv">15</span>,</span>
 <span id="cb36-65"><a href="#cb36-65" aria-hidden="true" tabindex="-1"></a>                        <span class="dv">25</span>,<span class="dv">24</span>,<span class="dv">18</span>,<span class="dv">14</span>),</span>
 <span id="cb36-66"><a href="#cb36-66" aria-hidden="true" tabindex="-1"></a>                    <span class="at">numalternativas =</span> <span class="dv">4</span>,</span>
 <span id="cb36-67"><a href="#cb36-67" aria-hidden="true" tabindex="-1"></a>                    <span class="at">numestados =</span> <span class="dv">4</span>)</span>
-<span id="cb36-68"><a href="#cb36-68" aria-hidden="true" tabindex="-1"></a>tb01fav</span>
+<span id="cb36-68"><a href="#cb36-68" aria-hidden="true" tabindex="-1"></a>tb01</span>
 <span id="cb36-69"><a href="#cb36-69" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb36-70"><a href="#cb36-70" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-73"><a href="#cb36-73" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb36-74"><a href="#cb36-74" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Wald</span>(tb01fav,T)</span>
-<span id="cb36-75"><a href="#cb36-75" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Optimista</span>(tb01fav, T)</span>
-<span id="cb36-76"><a href="#cb36-76" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Hurwicz</span>(tb01fav, <span class="at">alfa =</span> <span class="fl">0.6</span>, T)</span>
-<span id="cb36-77"><a href="#cb36-77" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Savage</span>(tb01fav,T)</span>
-<span id="cb36-78"><a href="#cb36-78" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Laplace</span>(tb01fav,T)</span>
-<span id="cb36-79"><a href="#cb36-79" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.PuntoIdeal</span>(tb01fav,T)</span>
+<span id="cb36-74"><a href="#cb36-74" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Wald</span>(tb01,T)</span>
+<span id="cb36-75"><a href="#cb36-75" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Optimista</span>(tb01, T)</span>
+<span id="cb36-76"><a href="#cb36-76" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Hurwicz</span>(tb01, <span class="at">alfa =</span> <span class="fl">0.6</span>, T)</span>
+<span id="cb36-77"><a href="#cb36-77" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Savage</span>(tb01,T)</span>
+<span id="cb36-78"><a href="#cb36-78" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Laplace</span>(tb01,T)</span>
+<span id="cb36-79"><a href="#cb36-79" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.PuntoIdeal</span>(tb01,T)</span>
 <span id="cb36-80"><a href="#cb36-80" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb36-81"><a href="#cb36-81" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-82"><a href="#cb36-82" aria-hidden="true" tabindex="-1"></a>Como apartado extra, se dibuja el gráfico de la función de Hurwicz, separando los intervalos en los que cambia la alternativa óptima. No se pide, pero hace más visual la interpretación del coeficiente de optimismo $\alpha$ y los cambios que tienen lugar al modificar este.</span>
 <span id="cb36-83"><a href="#cb36-83" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-86"><a href="#cb36-86" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb36-87"><a href="#cb36-87" aria-hidden="true" tabindex="-1"></a><span class="fu">dibuja.criterio.Hurwicz_Intervalos</span>(tb01fav, T, T)</span>
+<span id="cb36-87"><a href="#cb36-87" aria-hidden="true" tabindex="-1"></a><span class="fu">dibuja.criterio.Hurwicz_Intervalos</span>(tb01, T, T)</span>
 <span id="cb36-88"><a href="#cb36-88" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb36-89"><a href="#cb36-89" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-90"><a href="#cb36-90" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-91"><a href="#cb36-91" aria-hidden="true" tabindex="-1"></a><span class="fu">## Solución del Problema 1 (desfavorable)</span></span>
 <span id="cb36-92"><a href="#cb36-92" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-95"><a href="#cb36-95" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb36-96"><a href="#cb36-96" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Wald</span>(tb01fav,F)</span>
-<span id="cb36-97"><a href="#cb36-97" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Optimista</span>(tb01fav,F)</span>
-<span id="cb36-98"><a href="#cb36-98" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Hurwicz</span>(tb01fav, <span class="at">alfa =</span> <span class="fl">0.6</span>, F)</span>
-<span id="cb36-99"><a href="#cb36-99" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Savage</span>(tb01fav,F)</span>
-<span id="cb36-100"><a href="#cb36-100" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Laplace</span>(tb01fav,F)</span>
-<span id="cb36-101"><a href="#cb36-101" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.PuntoIdeal</span>(tb01fav,F) </span>
+<span id="cb36-96"><a href="#cb36-96" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Wald</span>(tb01,F)</span>
+<span id="cb36-97"><a href="#cb36-97" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Optimista</span>(tb01,F)</span>
+<span id="cb36-98"><a href="#cb36-98" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Hurwicz</span>(tb01, <span class="at">alfa =</span> <span class="fl">0.6</span>, F)</span>
+<span id="cb36-99"><a href="#cb36-99" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Savage</span>(tb01,F)</span>
+<span id="cb36-100"><a href="#cb36-100" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Laplace</span>(tb01,F)</span>
+<span id="cb36-101"><a href="#cb36-101" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.PuntoIdeal</span>(tb01,F) </span>
 <span id="cb36-102"><a href="#cb36-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb36-103"><a href="#cb36-103" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-104"><a href="#cb36-104" aria-hidden="true" tabindex="-1"></a>Como apartado extra, se dibuja el gráfico de la función de Hurwicz, separando los intervalos en los que cambia la alternativa óptima No se pide, pero hace más visual la interpretación del coeficiente de optimismo $\alpha$ y los cambios que tienen lugar al modificar este.</span>
 <span id="cb36-107"><a href="#cb36-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb36-108"><a href="#cb36-108" aria-hidden="true" tabindex="-1"></a><span class="fu">dibuja.criterio.Hurwicz_Intervalos</span>(tb01fav, F, T)</span>
+<span id="cb36-108"><a href="#cb36-108" aria-hidden="true" tabindex="-1"></a><span class="fu">dibuja.criterio.Hurwicz_Intervalos</span>(tb01, F, T)</span>
 <span id="cb36-109"><a href="#cb36-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb36-110"><a href="#cb36-110" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-111"><a href="#cb36-111" aria-hidden="true" tabindex="-1"></a></span>
@@ -3596,21 +3597,23 @@ iAlt.Opt (fav.)     Talleres intensivos</code></pre>
 <span id="cb36-176"><a href="#cb36-176" aria-hidden="true" tabindex="-1"></a><span class="fu">criterio.Todos</span>(tb02, <span class="fl">0.5</span>, T)</span>
 <span id="cb36-177"><a href="#cb36-177" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb36-178"><a href="#cb36-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-179"><a href="#cb36-179" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Según el criterio de Wald, la alternativa óptima para el tutor son las _Clases individuales_ ($d_1$).</span>
-<span id="cb36-180"><a href="#cb36-180" aria-hidden="true" tabindex="-1"></a>Esto es **Verdadero**, basta con ver la salida del criterio Wald.</span>
-<span id="cb36-181"><a href="#cb36-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-182"><a href="#cb36-182" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Aplicando el criterio optimista, la alternativa seleccionada es la de los _Talleres intensivos_ ($d_2$).</span>
-<span id="cb36-183"><a href="#cb36-183" aria-hidden="true" tabindex="-1"></a>Esto es **Falso**, la opción con el mayor beneficio máximo es la de _Material digital_ $d_3$ con 3.000€.</span>
-<span id="cb36-184"><a href="#cb36-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-185"><a href="#cb36-185" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Utilizando el criterio de Laplace, el valor de la esperanza matemática  para los _Talleres intensivos_ ($d_2$) es superior a 1.400€. </span>
-<span id="cb36-186"><a href="#cb36-186" aria-hidden="true" tabindex="-1"></a>Esto es **Verdadero**, el valor de la esperanza matemática para los _Talleres intensivos_ ($d_2$) es de 1.433,33€.</span>
-<span id="cb36-187"><a href="#cb36-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-188"><a href="#cb36-188" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>El coste de oportunidad máximo (arrepentimiento) para la alternativa de _Material digital_ ($d_3$) bajo el criterio de Savage es de 600€. </span>
-<span id="cb36-189"><a href="#cb36-189" aria-hidden="true" tabindex="-1"></a>Esto es **Falso**, el coste de oportunidad máximo (arrepentimiento) para la alternativa de _Material digital_ ($d_3$) bajo el criterio de Savage es de 950€.</span>
-<span id="cb36-190"><a href="#cb36-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-191"><a href="#cb36-191" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Si se aplica el criterio de Hurwicz con un coeficiente de optimismo</span>
-<span id="cb36-192"><a href="#cb36-192" aria-hidden="true" tabindex="-1"></a>$\alpha = 0.5$, la alternativa preferida es la de _Material digital_ ($d_3$). </span>
-<span id="cb36-193"><a href="#cb36-193" aria-hidden="true" tabindex="-1"></a>Esto es **Falso**, la alternativa preferida es la de _Talleres intensivos_ ($d_2$) con un valor ponderado de 1.450€.</span>
+<span id="cb36-179"><a href="#cb36-179" aria-hidden="true" tabindex="-1"></a>Debido a que con los 6 criterios realizados, la alternativa más veces óptima ($4/6$) es la de _Talleres Intensivos_, al tutor le recomendaría esa alternativa.</span>
+<span id="cb36-180"><a href="#cb36-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-181"><a href="#cb36-181" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Según el criterio de Wald, la alternativa óptima para el tutor son las _Clases individuales_ ($d_1$).</span>
+<span id="cb36-182"><a href="#cb36-182" aria-hidden="true" tabindex="-1"></a>Esto es **Verdadero**, basta con ver la salida del criterio Wald.</span>
+<span id="cb36-183"><a href="#cb36-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-184"><a href="#cb36-184" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Aplicando el criterio optimista, la alternativa seleccionada es la de los _Talleres intensivos_ ($d_2$).</span>
+<span id="cb36-185"><a href="#cb36-185" aria-hidden="true" tabindex="-1"></a>Esto es **Falso**, la opción con el mayor beneficio máximo es la de _Material digital_ $d_3$ con 3.000€.</span>
+<span id="cb36-186"><a href="#cb36-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-187"><a href="#cb36-187" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Utilizando el criterio de Laplace, el valor de la esperanza matemática  para los _Talleres intensivos_ ($d_2$) es superior a 1.400€. </span>
+<span id="cb36-188"><a href="#cb36-188" aria-hidden="true" tabindex="-1"></a>Esto es **Verdadero**, el valor de la esperanza matemática para los _Talleres intensivos_ ($d_2$) es de 1.433,33€.</span>
+<span id="cb36-189"><a href="#cb36-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-190"><a href="#cb36-190" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>El coste de oportunidad máximo (arrepentimiento) para la alternativa de _Material digital_ ($d_3$) bajo el criterio de Savage es de 600€. </span>
+<span id="cb36-191"><a href="#cb36-191" aria-hidden="true" tabindex="-1"></a>Esto es **Falso**, el coste de oportunidad máximo (arrepentimiento) para la alternativa de _Material digital_ ($d_3$) bajo el criterio de Savage es de 950€.</span>
+<span id="cb36-192"><a href="#cb36-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-193"><a href="#cb36-193" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Si se aplica el criterio de Hurwicz con un coeficiente de optimismo</span>
+<span id="cb36-194"><a href="#cb36-194" aria-hidden="true" tabindex="-1"></a>$\alpha = 0.5$, la alternativa preferida es la de _Material digital_ ($d_3$). </span>
+<span id="cb36-195"><a href="#cb36-195" aria-hidden="true" tabindex="-1"></a>Esto es **Falso**, la alternativa preferida es la de _Talleres intensivos_ ($d_2$) con un valor ponderado de 1.450€.</span>
 </code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
