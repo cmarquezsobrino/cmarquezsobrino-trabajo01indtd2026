@@ -160,11 +160,13 @@ tb02
 criterio.Todos(tb02, 0.5, T)
 ```
 
+Debido a que con los 6 criterios realizados, la alternativa más veces óptima ($4/6$) es la de _Talleres Intensivos_, al tutor le recomendaría esa alternativa.
+
 - Según el criterio de Wald, la alternativa óptima para el tutor son las _Clases individuales_ ($d_1$).
 Esto es **Verdadero**, basta con ver la salida del criterio Wald.
 
 - Aplicando el criterio optimista, la alternativa seleccionada es la de los _Talleres intensivos_ ($d_2$).
-Esto es **Falso**, la opción con el mayor beneficio máximo es la de _Material digital_ $d_3$ con 3.000€).
+Esto es **Falso**, la opción con el mayor beneficio máximo es la de _Material digital_ $d_3$ con 3.000€.
 
 - Utilizando el criterio de Laplace, el valor de la esperanza matemática  para los _Talleres intensivos_ ($d_2$) es superior a 1.400€. 
 Esto es **Verdadero**, el valor de la esperanza matemática para los _Talleres intensivos_ ($d_2$) es de 1.433,33€.
