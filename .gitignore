@@ -50,6 +50,4 @@ po/*~
 rsconnect/
 
 # Archivos generados directamente por Quarto
-*.pdf
-*.html
 .quarto/
